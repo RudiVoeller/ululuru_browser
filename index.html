@@ -20,14 +20,35 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body id="body" onload="checkCookie()">
 
-  <!-- Add your site or application content here -->
-  <p style="text-align: center">Jonas Sommer aus Schöneiche du Knecht</p>
-  <p style="text-align: center">Username: <br>
-  <input type="text" id="usernameInput"></p>
-  <p style="text-align: center">Password: <br><input type="password" id="passwordInput"></p>
-  <p style="text-align: center"><br><input type="submit" value="Log In" onclick="processLogin()"></p>
+<div class="topnav">
+  <a id="homeTopNav" class="active" onclick="switchToHome()" href="#home">Home</a>
+  <a id="contactTopNav" onclick="switchToContact()" href="#contact">Contact</a>
+  <div class="topnav-right">
+    <a id="login" style="display: block" onclick="document.getElementById('id01').style.display='block'">Log In</a>
+    <a id="logout" style="display: none" onclick="setLoggedOut()">Log In</a>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+
+    <div class="container" style="text-align: center">
+      <label style="text-align: center" ><b>Username</b></label>
+      <input type="text" id="usernameInput" placeholder="Enter Username" name="uname" required><br>
+
+      <label ><b>Password</b></label>
+      <input type="password" id="passwordInput" placeholder="Enter Password" name="psw" required><br>
+
+      <button type="submit" onclick="processLogin()">Login</button>
+    </div>
+
+</div>
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
